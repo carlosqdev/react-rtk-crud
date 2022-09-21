@@ -1,17 +1,17 @@
 import React from 'react'
-import type { RootState } from './app/store'
-import {  useSelector } from "react-redux"
+import { Routes, Route, Link } from "react-router-dom"
+
 import TaskForm from './components/TaskForm'
 import TasksList from './components/TasksList'
 
 function App() {
-  const tasksState = useSelector((state: RootState) => state.tasks)
 
-  console.log(tasksState)
   return (
     <div>
-      <TaskForm />
-      <TasksList />
+      <Routes>
+        <Route path='/' element={<TasksList />} />
+        <Route path='/create-task' element={<TaskForm />} />
+      </Routes>
     </div>
   )
 }
